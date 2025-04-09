@@ -1,6 +1,6 @@
 const courseDivNode = document.getElementById("course-list");
 
-fetch("https://cs272.cs.wisc.edu/rest/f24/ice/courses")
+fetch("https://cs272.cs.wisc.edu/rest/s25/ice/courses")
 .then(res => res.json())
 .then(courses => {
     courses
@@ -56,10 +56,10 @@ function createCourseComponent(courseData) {
     newReadMoreBtnNode.innerText = "Read More";
     newReadMoreBtnNode.addEventListener("click", () => {
         if(newReadMoreBtnNode.innerText === "Read More") {
-            newDescNode.innerText = data.description;
+            newDescNode.innerText = courseData.description;
             newReadMoreBtnNode.innerText = "Read Less";
         } else {
-            newDescNode.innerText = data.description.substring(0, 200) + "...";
+            newDescNode.innerText = courseData.description.substring(0, 200) + "...";
             newReadMoreBtnNode.innerText = "Read More";
         }
     });
